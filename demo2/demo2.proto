@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package person;
+
+enum Sex
+{
+    male = 0; //enum从0开始
+    female = 1;
+    unknown =2;
+}
+
+message Info    //message可以理解为struct
+{
+    string name = 1;
+    uint32 age = 2;
+    string email = 3;
+    string phone = 4;
+}
+
+message Friends
+{
+    string name = 1;
+    uint32 age = 2;
+    Sex sex =3;
+}
+
+message Person
+{
+    string id = 1;//message从1开始
+    Sex sex =2;
+    Info info = 3;
+    repeated string other_info = 4;//这条信息可以重复，可以有多条。用add_XXX方法赋值
+    repeated Friends friends = 5;//这条信息可以重复，可以有多条。用add_XXX方法赋值
+}
